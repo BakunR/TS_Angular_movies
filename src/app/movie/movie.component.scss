@@ -1,0 +1,12 @@
+.singleMovie {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+    img {
+        width: 300px;
+    }
+    .content {
+        width: 30%;
+        padding: 15px;
+    }
+}

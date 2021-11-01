@@ -1,0 +1,19 @@
+.films-box {
+    width: 100%;
+
+    img{
+        width: 200px;
+        height: auto;
+        cursor: pointer;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    li {
+        display: block;
+        width: 250px;
+        margin: 1rem;
+        text-align: center;
+    }
+}

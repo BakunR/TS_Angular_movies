@@ -1,0 +1,27 @@
+<div *ngIf="!loading; else loadingMessage" id="search-component">
+  <label for="search-box">Movie Search </label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+  <ng-container *ngIf="movie$ | async as movies">
+    <div class="films-box">
+      <ul *ngIf="movies.length">
+        <li *ngFor="let movie of movies">
+          <img
+            routerLink="/detail/{{ movie.id }}"
+            class="img"
+            src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+            alt=""
+          />
+          <div class="discription">
+            <div>Name - {{ movie.title }}</div>
+            <div>IMDB - {{ movie.id }}</div>
+            <div>Release - {{ movie.release_date }}</div>
+            <div>Rate - {{ movie.vote_average }}</div>
+          </div>
+          <button (click)="saveFilm(movie.id)">Add to favorite</button>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</div>
+<ng-template #loadingMessage> Data loading....</ng-template>

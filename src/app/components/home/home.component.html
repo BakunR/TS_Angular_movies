@@ -1,0 +1,22 @@
+<div *ngIf="!loading; else loadingMessage" class="films-box">
+  <a>
+    <ul>
+      <li *ngFor="let film of obs2$ | async">
+        <img
+          routerLink="/detail/{{ film.id }}"
+          class="img"
+          src="https://image.tmdb.org/t/p/w500/{{ film.poster_path }}"
+          alt=""
+        />
+        <div class="discription">
+          <div>Name - {{ film.title }}</div>
+          <div>IMDB - {{ film.id }}</div>
+          <div>Release - {{ film.release_date }}</div>
+          <div>Rate - {{ film.vote_average }}</div>
+        </div>
+        <button (click)="saveFilm(film.id)">Add to favorite</button>
+      </li>
+    </ul>
+  </a>
+</div>
+<ng-template #loadingMessage> Data loading....</ng-template>

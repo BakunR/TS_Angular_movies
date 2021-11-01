@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+}
+nav{
+    width: 200px;
+    margin: 0 auto;
+    font-size: 20px;
+    
+    a{
+        padding: 1rem;
+        text-decoration: none;
+    }
+    .active {
+        border: 1px solid blue;
+    }
+}

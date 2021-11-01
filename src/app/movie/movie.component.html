@@ -1,0 +1,15 @@
+<ng-container *ngIf="movie$ | async as movie">
+  <div class="singleMovie">
+    <img
+      class="img"
+      src="https://image.tmdb.org/t/p/w500/{{ movie.poster_path }}"
+      alt=""
+    />
+    <div class="content">
+      <h2>{{ movie.title }}</h2>
+      <p>Release: {{ movie.release_date }}</p>
+      <span>IMDB: {{ movie.id }}</span>
+      <p>{{ movie.overview }}</p>
+    </div>
+  </div>
+</ng-container>
