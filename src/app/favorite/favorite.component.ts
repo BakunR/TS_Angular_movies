@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IMovie } from '../models/movie.interface';
-import { MovieService } from '../services/movie.service';
+import { FavoriteService } from './favorite.service';
 
 @Component({
   selector: 'app-favorite',
@@ -10,15 +10,15 @@ import { MovieService } from '../services/movie.service';
 export class FavoriteComponent implements OnInit {
   movies: IMovie[] = [];
 
-  constructor(private movieService: MovieService) {}
+  constructor(private favoriteService: FavoriteService) {}
 
   ngOnInit(): void {
-    this.movieService.getFavorite().subscribe((res) => {
+    this.favoriteService.getFavorite().subscribe((res) => {
       this.movies = res;
     });
   }
 
   delFavorite(id: number) {
-    this.movieService.delFavorite(id);
+    this.favoriteService.delFavorite(id);
   }
 }

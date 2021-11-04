@@ -3,6 +3,7 @@ import { MovieService } from '../../services/movie.service';
 import { IMovie } from '../../models/movie.interface';
 import { StorageService } from '../../services/storage.service';
 import { Observable } from 'rxjs';
+import { FavoriteService } from 'src/app/favorite/favorite.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     public movieService: MovieService,
-    public storageService: StorageService
+    public storageService: StorageService,
+    private favoriteService: FavoriteService
   ) {
     this.obs2$ = this.movieService.getMovie();
     console.log('result', this.obs2$);
@@ -23,7 +25,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  saveFilm(id: number) {
-    this.movieService.addFavorite(id);
+  saveFilm(movie: IMovie) {
+    this.favoriteService.addFavorite(movie);
   }
 }
